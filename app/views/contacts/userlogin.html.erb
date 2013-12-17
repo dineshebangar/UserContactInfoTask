@@ -1,0 +1,27 @@
+
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="margin-left:400px;">
+  <% if user_signed_in? %>
+    <li class="text-info">
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete ,:class=>"btn btn-info") %>        
+    </li>
+  <% else %>
+    <li class="text-info"> 
+    <%= link_to('Login', new_user_session_path,:class=>"btn btn-info")  %>  
+    </li>
+  <% end %>
+  <br />
+
+  <% if user_signed_in? %>
+    <li class="text-info">
+    <%= link_to('Edit registration', edit_user_registration_path ,:class=>"btn btn-info") %>
+    </li>
+  <% else %>
+    <li class="text-info">
+    <%= link_to('Register', new_user_registration_path ,:class=>"btn btn-info")  %>
+    </li>
+  <% end %>
+</div>

@@ -1,0 +1,42 @@
+
+<div style="margin-left:400px;">
+</br></br></br></br></br>
+
+<h3 style="margin-left:200px;" class="text-info">Sign in</h3>
+</br></br>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+
+
+  <div class="control-group ">
+  	<%= f.label :email , :class => 'control-label'%>
+  	<div class="controls">
+  		<div class="input-prepend">		
+  		<span class="add-on"><i class="icon-envelope"></i></span>
+  		<%= f.email_field :email, :autofocus => true, :class=>"span2",:id=>"inputIcon" %>
+  	</div>
+  	</div>
+  </div>
+
+  <div class="control-group">
+  	<%= f.label :password , :class => 'control-label'%>
+  	<div class="controls">
+  		<%= f.password_field :password %>
+  	</div>
+  </div>	
+  <div class="control-group">
+  	<% if devise_mapping.rememberable? -%>
+    	<div class="controls"><%= f.check_box :remember_me %> 
+    		<%= f.label :remember_me %></div>
+  	<% end -%>
+  </div>	
+
+  <div class="control-group"><div class="controls"><%= f.submit "Sign in" %></div></div>
+<% end %>
+
+
+
+<div style="margin-left:170px;">
+	<%= render "devise/shared/links" %>
+</div>
+</div>

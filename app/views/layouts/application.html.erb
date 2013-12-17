@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UserInformationTask</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%#= javascript_include_tag :defaults, "nested_form" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% flash.each do |name, msg| %>
+<% if msg.is_a?(String) %>
+<div id="flash-notices">
+<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+<div class="content">
+<a class="close" data-dismiss="alert" id='dismiss'>&#215;</a>
+<%= msg %>
+</div>
+</div>
+</div>
+<% end %>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
